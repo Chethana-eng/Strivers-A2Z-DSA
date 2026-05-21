@@ -7,6 +7,16 @@ public class stockbuysell {
         for(int i=0; i<n; i++){
             arr[i]=sc.nextInt();
         }
-        
+        int minPrice = Integer.MAX_VALUE;
+        int maxPrice = 0;
+        for(int price:arr){
+            if(price<minPrice){
+                minPrice = price;
+            }
+            if(price-minPrice > maxPrice){
+                maxPrice = price-minPrice;
+            }
+        }
+        System.out.println(maxPrice);
     }
 }
