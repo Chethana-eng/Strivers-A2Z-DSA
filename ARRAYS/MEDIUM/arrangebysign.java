@@ -7,20 +7,38 @@ public class arrangebysign {
         for(int i=0; i<n; i++){
             arr[i]=sc.nextInt();
         }
-        List<Integer> pos = new ArrayList<>();
-        List<Integer> neg = new ArrayList<>();
-        for(int i=0; i<n;i++){
+        // List<Integer> pos = new ArrayList<>();
+        // List<Integer> neg = new ArrayList<>();
+        // for(int i=0; i<n;i++){
+        //     if(arr[i]>0){
+        //         pos.add(arr[i]);
+        //     }
+        //     else{
+        //         neg.add(arr[i]);
+        //     }
+        // }
+        // for(int i=0; i<n/2; i++){
+        //     arr[2*i] = pos.get(i);
+        //     arr[2*i+1] = neg.get(i);
+        // }
+        // System.out.println( Arrays.toString(arr) );
+
+
+
+        //optimized approach
+        int[] ans = new int[n];
+        int posidx=0;
+        int negidx=1;
+        for(int i=0; i<n; i++){
             if(arr[i]>0){
-                pos.add(arr[i]);
+                ans[posidx]= arr[i];
+                posidx+=2;
             }
             else{
-                neg.add(arr[i]);
+                ans[negidx]=arr[i];
+                negidx+=2;
             }
         }
-        for(int i=0; i<n/2; i++){
-            arr[2*i] = pos.get(i);
-            arr[2*i+1] = neg.get(i);
-        }
-        System.out.println( Arrays.toString(arr) );
+        System.out.println( Arrays.toString(ans) );
     }
 }
